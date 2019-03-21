@@ -1,6 +1,6 @@
 {
   "name": "egg-rmq",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "RabbitMQ egg",
   "eggPlugin": {
     "name": "rmq"
@@ -37,7 +37,11 @@
     "autod": "autod"
   },
   "files": [
-    "config"
+    "app.js",
+    "agent.js",
+    "config",
+    "app",
+    "lib"
   ],
   "ci": {
     "version": "8, 9"

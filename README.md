@@ -40,7 +40,7 @@ exports.rmq = {
 
 ## Configuration
 
-#####Single Server
+##### Single Server
 
 ```js
 // {app_root}/config/config.default.js

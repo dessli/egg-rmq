@@ -62,6 +62,22 @@ exports.rmq = {
   };
 ```
 
+```js
+// {app_root}/config/config.default.js
+// If not set name then this config like Single Server, use app.rmq.conn
+exports.rmq = {
+    servers: [
+      {
+        host: 'amqp://localhost',
+      },
+      {
+        name: 'test',
+        host: 'amqp://localhost2',
+      },
+    ],
+  };
+```
+
 ##### Route queue
 
 > use rmq.route to set Single Server channel

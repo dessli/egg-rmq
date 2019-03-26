@@ -17,6 +17,28 @@ module.exports = {
           };
           this[RMQSymbol][sv][RMQRouterConfigSymbol] = routeMap;
         }
+      } else if (Object.prototype.toString.call(this.config.rmq.servers) === '[object Array]') {
+        this[RMQSymbol] = {};
+        for (const it of this.config.rmq.servers) {
+          if (it.name) {
+            const routeMap = new Map();
+            this[RMQSymbol].route = (queue, handler) => {
+              if (!routeMap.has(queue)) {
+                routeMap.set(queue, handler);
+              }
+            };
+            this[RMQSymbol][RMQRouterConfigSymbol] = routeMap;
+          }
+          const sv = it.name;
+          const routeMap = new Map();
+          this[RMQSymbol][sv] = {};
+          this[RMQSymbol][sv].route = (queue, handler) => {
+            if (!routeMap.has(queue)) {
+              routeMap.set(queue, handler);
+            }
+          };
+          this[RMQSymbol][sv][RMQRouterConfigSymbol] = routeMap;
+        }
       } else {
         const routeMap = new Map();
         this[RMQSymbol] = {

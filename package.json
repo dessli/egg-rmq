@@ -1,6 +1,6 @@
 {
   "name": "egg-rmq",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "RabbitMQ egg",
   "eggPlugin": {
     "name": "rmq"
